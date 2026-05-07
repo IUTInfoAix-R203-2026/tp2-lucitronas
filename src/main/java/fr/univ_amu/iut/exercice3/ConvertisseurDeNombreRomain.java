@@ -34,19 +34,47 @@ public class ConvertisseurDeNombreRomain {
    * @throws IllegalArgumentException si la chaîne contient un symbole invalide ou une soustraction
    *     interdite
    */
+  public int valeuDe(char c) {
+    if (c == 'I') {
+      return 1;
+    } else if (c == 'V') {
+      return 5;
+    } else if (c == 'X') {
+      return 10;
+    } else if (c == 'L') {
+      return 50;
+    } else if (c == 'C') {
+      return 100;
+    } else if (c == 'D') {
+      return 500;
+    } else if (c == 'M') {
+      return 1000;
+    }
+    throw new IllegalArgumentException("pas bon chiffre");
+  }
+
   public int enNombreArabe(String chiffreRomain) {
     int total = 0;
-    // TODO exercice 3 : remplir total en parcourant la chaîne.
-    //
-    // Activez les tests un par un. Commencez par "I" = 1 (fake it en
-    // retournant 1 en dur), puis "II" = 2 et "III" = 3 (boucle de comptage
-    // d'occurrences de I), puis "V" = 5 (switch sur le symbole).
-    //
-    // Quand vous arrivez à "IV" = 4 : extrayez une méthode valeurDe(char)
-    // pour factoriser, puis ajoutez la logique de soustraction.
-    //
-    // Pour les exceptions : une soustraction est valide seulement pour
-    // I avant V/X, X avant L/C, C avant D/M. Tout le reste est invalide.
+    for (int i = 1; i <= chiffreRomain.length(); i = i + 1) {
+      if (i < chiffreRomain.length()
+          && ((chiffreRomain.charAt(i - 1) == 'I'
+                  && (chiffreRomain.charAt(i) == 'V' || chiffreRomain.charAt(i) == 'X'))
+              || (chiffreRomain.charAt(i - 1) == 'X'
+                  && (chiffreRomain.charAt(i) == 'L' || chiffreRomain.charAt(i) == 'C'))
+              || (chiffreRomain.charAt(i - 1) == 'C'
+                  && (chiffreRomain.charAt(i) == 'D' || chiffreRomain.charAt(i) == 'M')))) {
+        char u = chiffreRomain.charAt(i - 1);
+        char b = chiffreRomain.charAt(i);
+        int n = valeuDe(u);
+        int c = valeuDe(b);
+        total = total + (c - n);
+        i = i + 1;
+      } else {
+        char c = chiffreRomain.charAt(i - 1);
+        int n = valeuDe(c);
+        total += n;
+      }
+    }
     return total;
   }
 }
