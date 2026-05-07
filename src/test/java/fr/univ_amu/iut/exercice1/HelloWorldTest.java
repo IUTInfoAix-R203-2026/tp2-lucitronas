@@ -2,7 +2,6 @@ package fr.univ_amu.iut.exercice1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -42,7 +41,6 @@ class HelloWorldTest {
     assertThat(HelloWorld.saluer("Alice")).isEqualTo("Hello, Alice!");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void saluer_bob_retourne_hello_bob() {
     assertThat(HelloWorld.saluer("Bob")).isEqualTo("Hello, Bob!");
@@ -61,7 +59,6 @@ class HelloWorldTest {
     assertThat(HelloWorld.saluer("Éric")).isEqualTo("Hello, Éric!");
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void saluer_jean_dupont_retourne_hello_jean_dupont() {
     assertThat(HelloWorld.saluer("Jean Dupont")).isEqualTo("Hello, Jean Dupont!");
