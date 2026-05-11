@@ -28,15 +28,12 @@ import org.junit.jupiter.api.Test;
 class GrilleDemineurTest {
 
   // ========= Cas dégénérés =========
-
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_grille_vide_est_correctement_annotee() {
     assertThat(new GrilleDemineur(Collections.emptyList()).getRepresentationAnnotee())
         .isEqualTo(Collections.emptyList());
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_grille_1_x_1_sans_mine_est_correctement_annotee() {
     List<String> entree = Collections.singletonList(" ");
