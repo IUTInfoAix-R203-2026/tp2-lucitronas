@@ -29,6 +29,17 @@ public class SimulateurDeRobot {
    * @throws IllegalArgumentException si un caractère inconnu est rencontré
    */
   public void executer(String commandes) {
+    for (int i = 1; i <= commandes.length(); i = i + 1) {
+      if (commandes.charAt(i - 1) == 'A') {
+        robot.avancer();
+      } else if (commandes.charAt(i - 1) == 'R') {
+        robot.tournerADroite();
+      } else if (commandes.charAt(i - 1) == 'L') {
+        robot.tournerAGauche();
+      } else {
+        throw new IllegalArgumentException("pas bonne commande");
+      }
+    }
     // TODO exercice 4 : appliquer chaque commande au robot l'une après l'autre.
     // Bonus : levez IllegalArgumentException pour tout caractère autre que R, L, A.
   }
