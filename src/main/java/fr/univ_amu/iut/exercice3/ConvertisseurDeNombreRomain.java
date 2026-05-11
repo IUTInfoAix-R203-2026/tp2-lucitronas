@@ -78,3 +78,35 @@ public class ConvertisseurDeNombreRomain {
     return total;
   }
 }
+/*
+ * if (i < chiffreRomain.length()
+ * && ((chiffreRomain.charAt(i - 1) == 'I'
+ * && (chiffreRomain.charAt(i) == 'V' || chiffreRomain.charAt(i) == 'X'))
+ * || (chiffreRomain.charAt(i - 1) == 'X'
+ * && (chiffreRomain.charAt(i) == 'L' || chiffreRomain.charAt(i) == 'C'))
+ * || (chiffreRomain.charAt(i - 1) == 'C'
+ * && (chiffreRomain.charAt(i) == 'D' || chiffreRomain.charAt(i) == 'M')))) {
+ * char u = chiffreRomain.charAt(i - 1);
+ * char b = chiffreRomain.charAt(i);
+ * int n = valeuDe(u);
+ * int c = valeuDe(b);
+ * total = total + (c - n);
+ * i = i + 1;
+ * } else {
+ * char c = chiffreRomain.charAt(i - 1);
+ * int n = valeuDe(c);
+ * total += n;
+ * }
+ * int val = valeuDe(c);
+ * if (x != 0) {
+ * if (x == val*5 || x == val*10) {
+ * total += (x-val) ;
+ * }
+ * else {
+ * throw new IllegalArgumentException("pas bon chiffre");
+ * }
+ * }
+ * else{
+ * total += val;
+ * }
+ */
